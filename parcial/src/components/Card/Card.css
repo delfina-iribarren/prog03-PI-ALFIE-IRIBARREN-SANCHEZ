@@ -1,0 +1,10 @@
+.cardBody {
+    margin-top: 20px;
+}
+.single-card-movie {
+    width: 24%;
+}
+.card-text{
+    height: 100px;
+    overflow: hidden;
+}
