@@ -1,14 +1,18 @@
 import { Component } from "react";
 import "./Card.css"
+import { Link } from "react-router-dom";
 
 class Card extends Component {
     constructor(props){
         super(props)
         this.state={
-
+            verDescripcion: false
         }
     }
-    
+    cambiarDescripcion(){
+        this.setState({verDescripcion: !this.state.verDescripcion})
+    }
+
     render(){
         console.log(this.props)
         return(
@@ -17,8 +21,9 @@ class Card extends Component {
                     alt="..."/>
                 <div class="cardBody">
                     <h5 class="card-title">{this.props.data.title}</h5>
-                    <p class="card-text">{this.props.data.overview}</p>
-                    <a href="movie.html" class="btn btn-primary">Ver más</a>
+                    <button class="btn alert-primary" onClick = {() => this.cambiarDescripcion()}>{this.state.verDescripcion ? "Ocultar descripción" : "Ver descripción"}</button>
+                    {this.state.verDescripcion ? <p class="card-text">{this.props.data.overview}</p> : ""}
+                    <Link to= {`/detalle/${this.props.data.id}`} class="btn btn-primary">Ver más</Link>
                     <a href="" class="btn alert-primary">♥️</a>
                 </div>
             </article>

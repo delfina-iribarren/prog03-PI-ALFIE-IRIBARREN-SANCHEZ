@@ -28,6 +28,7 @@ class Home extends Component {
                 console.log(data.results)
                 this.setState({peliscartelera:data.results.slice(0,5)})
             })
+        .catch(e => console.log(e))
     }
 
 
