@@ -14,7 +14,6 @@ class Card extends Component {
     }
 
     render(){
-        console.log(this.props)
         return(
              <article class="single-card-movie">
                 <img src={"https://image.tmdb.org/t/p/w500"+this.props.data.poster_path} class="card-img-top"

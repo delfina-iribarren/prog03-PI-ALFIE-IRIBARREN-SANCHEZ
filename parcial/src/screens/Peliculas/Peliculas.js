@@ -10,6 +10,9 @@ class Peliculas extends Component {
         super(props)
         this.state = { 
             peliculas: [],
+            busqueda: "",
+            peliculasFilter: [],
+            page: 2
         }
     }
 
@@ -23,7 +26,27 @@ class Peliculas extends Component {
 
         .catch(e => console.log(e))
     }
+//metodos:
+    cargarMas(){
+        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.tipo}?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=${this.state.page}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.results)
+                this.setState({peliculas:this.state.peliculas.concat(data.results),page:this.state.page + 1})
+            })
 
+        .catch(e => console.log(e))
+    }
+
+    escribir(e){
+        console.log(e.target.value)
+        this.setState({busqueda:e.target.value},()=> {
+            console.log(this.state.busqueda)
+            let filtro = this.state.peliculas.filter(unapeli => unapeli.title.toLowerCase().includes(this.state.busqueda.toLowerCase()))
+            this.setState({peliculasFilter:filtro})
+        })
+        console.log(this.state.busqueda)
+    }
 
 
     render() {
@@ -36,14 +59,19 @@ class Peliculas extends Component {
                     <Header />
 
                     <h2 class="alert alert-primary">Todas las películas {this.props.match.params.tipo?"populares":"en cartelera"}</h2>
-                    <form class="filter-form px-0 mb-3" action="" method="get">
-                        <input type="text" name="filter" id="" placeholder="Buscar dentro de la lista"/>
+                    <form class="filter-form px-0 mb-3">
+                        <input type="text" name="filter" id="" placeholder="Buscar dentro de la lista" value={this.state.busqueda}onChange={(e)=>this.escribir(e)}/>
                     </form>
-                    
-                    <button class="btn btn-info">Cargar más</button>
+                                                        
                     <section class="row cards" id="movies">
-                        {this.state.peliculas.length==0?<p>Cargando...</p>:this.state.peliculas.map((unapeli,idx)=><Card data={unapeli} key={idx}/>)}
+                        {
+                        this.state.peliculas.length==0?<p>Cargando...</p>:
+                        this.state.busqueda.length==0? this.state.peliculas.map((unapeli,idx)=><Card data={unapeli} key={idx}/>):
+                        this.state.peliculasFilter.length!=0? this.state.peliculasFilter.map((unapeli,idx)=><Card data={unapeli} key={idx}/>):"No se encontraron resultados para esa busqueda"
+                        }
                     </section>
+                                                            {/* parentesis vacios antes de la => porque no recibe parametros  */}
+                    <button class="btn btn-info" onClick={()=>this.cargarMas()}>Cargar más</button>
 
                 </div>
 
