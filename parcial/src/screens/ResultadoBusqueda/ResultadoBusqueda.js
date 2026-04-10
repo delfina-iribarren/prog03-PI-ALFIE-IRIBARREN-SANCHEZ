@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from '../Card/Card';
+import Card from "../../components/Card/Card";
 
 const api_key = '90b45a60c2f1bb623a150a6f0011fbcb';
 
