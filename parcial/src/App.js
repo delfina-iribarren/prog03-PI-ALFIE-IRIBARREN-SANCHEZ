@@ -4,6 +4,7 @@ import Home from './screens/Home/Home';
 import Detalle from './screens/Detalle/Detalle';
 import Notfound from './screens/Notfound/Notfound';
 import Peliculas from './screens/Peliculas/Peliculas';
+import ResultadoBusqueda from './screens/ResultadoBusqueda/ResultadoBusqueda';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/" exact={true} component = {Home}/>
       <Route path="/detalle/:id" exact={true} component = {Detalle}/>
       <Route path="/peliculas/:tipo" exact={true} component = {Peliculas}/>
+      <Route path="/reultados/:termino" exact={true} component = {ResultadoBusqueda}/>
       
 
 

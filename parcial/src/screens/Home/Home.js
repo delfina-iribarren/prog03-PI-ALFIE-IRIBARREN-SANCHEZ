@@ -4,6 +4,7 @@ import Card from "../../components/Card/Card";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import Buscador from "../../components/Buscador/Buscador";
 
 
 class Home extends Component {
@@ -44,18 +45,15 @@ class Home extends Component {
                     <Header />
 
 
-                    <form class="search-form" action="results.html" method="get">
-                        <input type="text" class="" name="searchData" placeholder="Buscar..." value="" />
-                        <button type="submit" class="btn btn-success btn-sm">Buscar</button>
-                    </form>
+                    <Buscador />
 
-                    <h2 class="alert alert-primary">Popular movies this week <Link to= "/peliculas/popular">Ver todas las peliculas populares</Link></h2>
-                    <section class="row cards" id="movies">
+                    <h2 className="alert alert-primary">Popular movies this week <Link to= "/peliculas/popular">Ver todas las peliculas populares</Link></h2>
+                    <section className="row cards" id="movies">
                         {this.state.pelispopulares.length==0?<p>Cargando...</p>:this.state.pelispopulares.map((unapeli,idx)=><Card data={unapeli} key={idx}/>)}
                     </section>
 
-                    <h2 class="alert alert-primary">Movies now playing <Link to= "/peliculas/now_playing">Ver todas las peliculas en cartelera</Link></h2>
-                    <section class="row cards" id="now-playing">
+                    <h2 className="alert alert-primary">Movies now playing <Link to= "/peliculas/now_playing">Ver todas las peliculas en cartelera</Link></h2>
+                    <section className="row cards" id="now-playing">
                       {this.state.peliscartelera.length==0?<p>Cargando...</p>:this.state.peliscartelera.map((unapeli,idx)=><Card data={unapeli} key={idx}/>)}
                     </section>
 
