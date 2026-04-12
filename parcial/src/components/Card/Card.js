@@ -10,6 +10,17 @@ class Card extends Component {
             esFavorito: false
         }
     }
+    
+    componentDidMount(){
+        console.log("HOLA");
+        const storage = localStorage.getItem("favPeliculas");
+        if (storage != null) {
+            const storageParseado = JSON.parse(storage);
+            if (storageParseado.includes(this.props.data.id)){
+                this.setState({esFavorito: true});
+            }
+        }
+    }
     cambiarDescripcion(){
         this.setState({verDescripcion: !this.state.verDescripcion})
     }
@@ -45,14 +56,14 @@ class Card extends Component {
 
     render(){
         return(
-             <article class="single-card-movie">
-                <img src={"https://image.tmdb.org/t/p/w500"+this.props.data.poster_path} class="card-img-top"
+             <article className="single-card-movie">
+                <img src={"https://image.tmdb.org/t/p/w500"+this.props.data.poster_path} className="card-img-top"
                     alt="..."/>
-                <div class="cardBody">
-                    <h5 class="card-title">{this.props.data.title}</h5>
-                    <button class="btn alert-primary" onClick = {() => this.cambiarDescripcion()}>{this.state.verDescripcion ? "Ocultar descripción" : "Ver descripción"}</button>
-                    {this.state.verDescripcion ? <p class="card-text">{this.props.data.overview}</p> : ""}
-                    <Link to= {`/detalle/${this.props.data.id}`} class="btn btn-primary">Ver más</Link>
+                <div className="cardBody">
+                    <h5 className="card-title">{this.props.data.title}</h5>
+                    <button className="btn alert-primary" onClick = {() => this.cambiarDescripcion()}>{this.state.verDescripcion ? "Ocultar descripción" : "Ver descripción"}</button>
+                    {this.state.verDescripcion ? <p className="card-text">{this.props.data.overview}</p> : ""}
+                    <Link to= {`/detalle/${this.props.data.id}`} className="btn btn-primary">Ver más</Link>
                     <div className="btn alert-primary" onClick={() => this.state.esFavorito ? this.sacarDeFavoritos() : this.agregarAFavoritos()}>{this.state.esFavorito ? '♥️' : '♡'}</div>
                 </div>
             </article>

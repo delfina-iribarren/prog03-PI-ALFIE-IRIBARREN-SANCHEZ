@@ -5,16 +5,19 @@ import Detalle from './screens/Detalle/Detalle';
 import Notfound from './screens/Notfound/Notfound';
 import Peliculas from './screens/Peliculas/Peliculas';
 import ResultadoBusqueda from './screens/ResultadoBusqueda/ResultadoBusqueda';
+import Favoritos from './screens/Favoritos/Favoritos';
 
 function App() {
   return (
     <Switch>
       <Route path="/" exact={true} component = {Home}/>
+      <Route path="/favoritos" exact={true} component = {Favoritos}/>
+      
       <Route path="/detalle/:id" exact={true} component = {Detalle}/>
       <Route path="/peliculas/:tipo" exact={true} component = {Peliculas}/>
       <Route path="/resultados/:termino" exact={true} component = {ResultadoBusqueda}/>
       
-
+    
 
       <Route path="" component = {Notfound}/>
     </Switch>
