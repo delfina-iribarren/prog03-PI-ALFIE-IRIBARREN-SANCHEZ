@@ -6,11 +6,41 @@ class Card extends Component {
     constructor(props){
         super(props)
         this.state={
-            verDescripcion: false
+            verDescripcion: false, 
+            esFavorito: false
         }
     }
     cambiarDescripcion(){
         this.setState({verDescripcion: !this.state.verDescripcion})
+    }
+
+    agregarAFavoritos() {
+        const storage = localStorage.getItem("favPeliculas");
+        if (storage === null) {
+        const primerFav = this.props.data.id;
+        let array = [];
+        array.push(primerFav);
+        const storageString = JSON.stringify(array); 
+        localStorage.setItem("favPeliculas", storageString); 
+        } else {
+        const storageParseado = JSON.parse(storage);
+        storageParseado.push(this.props.data.id); 
+        const storageString = JSON.stringify(storageParseado);
+        localStorage.setItem("favPeliculas", storageString);
+        }
+        this.setState({esFavorito: true});
+    }
+
+    sacarDeFavoritos(){
+        const storage = localStorage.getItem("favPeliculas");
+        const storageParseado = JSON.parse(storage);
+  
+        const storageFiltrado = storageParseado.filter(favId => favId !== this.props.data.id);
+  
+        const storageString = JSON.stringify(storageFiltrado);
+        localStorage.setItem("favPeliculas", storageString);
+        this.setState({esFavorito: false});
+
     }
 
     render(){
@@ -23,7 +53,7 @@ class Card extends Component {
                     <button class="btn alert-primary" onClick = {() => this.cambiarDescripcion()}>{this.state.verDescripcion ? "Ocultar descripción" : "Ver descripción"}</button>
                     {this.state.verDescripcion ? <p class="card-text">{this.props.data.overview}</p> : ""}
                     <Link to= {`/detalle/${this.props.data.id}`} class="btn btn-primary">Ver más</Link>
-                    <a href="" class="btn alert-primary">♥️</a>
+                    <div className="btn alert-primary" onClick={() => this.state.esFavorito ? this.sacarDeFavoritos() : this.agregarAFavoritos()}>{this.state.esFavorito ? '♥️' : '♡'}</div>
                 </div>
             </article>
         )
