@@ -21,7 +21,7 @@ class Buscador extends Component {
     render() {
         return (
             <form className="search-form" onSubmit={(e) => this.ejecutarBusqueda(e)}>
-                <input type="text" name="searchData" placeholder="Buscar..." value={this.state.termino} onChangeCapture={(e) => this.controlarCambios(e)}/>
+                <input type="text" name="searchData" placeholder="Buscar..." value={this.state.termino} onChange={(e) => this.controlarCambios(e)}/>
                 <button type="submit" className="btn btn-success btn-sm">Buscar</button> 
             </form>
         );
