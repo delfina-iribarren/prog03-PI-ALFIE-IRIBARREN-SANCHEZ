@@ -43,6 +43,10 @@ class Home extends Component {
 
 
                     <Header />
+                    <h2 class="alert alert-primary">Registro</h2>
+
+                               
+                                <p class="mt-3 text-center">¿Ya tenés cuenta? <a href="login.html">Iniciar sesión</a></p>
 
 
                     <Buscador />
