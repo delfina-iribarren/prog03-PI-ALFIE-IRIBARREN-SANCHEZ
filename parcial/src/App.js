@@ -6,12 +6,14 @@ import Notfound from './screens/Notfound/Notfound';
 import Peliculas from './screens/Peliculas/Peliculas';
 import ResultadoBusqueda from './screens/ResultadoBusqueda/ResultadoBusqueda';
 import Favoritos from './screens/Favoritos/Favoritos';
+import Register from './screens/Register/Register';
 
 function App() {
   return (
     <Switch>
       <Route path="/" exact={true} component = {Home}/>
-      <Route path="/favoritos" exact={true} component = {Favoritos}/>
+      <Route path="/registro" exact={true} component = {Register}/>
+      <Route path="/favoritas" exact={true} component = {Favoritos}/>
       
       <Route path="/detalle/:id" exact={true} component = {Detalle}/>
       <Route path="/peliculas/:tipo" exact={true} component = {Peliculas}/>
