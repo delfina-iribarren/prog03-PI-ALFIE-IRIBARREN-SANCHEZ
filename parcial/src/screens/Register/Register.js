@@ -1,4 +1,7 @@
-import {Component} from "react";
+import React, {Component} from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
+
 
 class Register extends Component{
     constructor(props){
@@ -30,20 +33,39 @@ class Register extends Component{
             if (emailExiste.length === 0){
                 storage.push(nuevoUsuario);
                 localStorage.setItem("usuarios", JSON.stringify(storage));
-            
+                document.cookie = `session=${email}; path=/`;
+                //redireccionar a login
+                this.props.history.push("/login");
+                }
+                else{
+                    this.setState({error: "Ya hay una cuenta con ese email"});
+                }
+            }
+            else{
+                localStorage.setItem("usuarios", JSON.stringify([nuevoUsuario]));
+                document.cookie = `session=${email}; path=/`;
+                //redireccionar a login
+                this.props.history.push("/login");
             }
         }
-        }
+
 
     render(){
-        <form>
-                <label for="email">Email</label>
-                <input onChange={((e)=> this.controlarCambios(e, "email"))}/>
-                <label for="password">Contraseña</label>
-                <input onChange={((e)=> this.controlarCambios(e, "password"))}/>
-                <button onClick={((e)=> this.onSubmit(e))}> Registrarse </button>
-        </form> 
+        const{email, password, error} = this.state;
+        return(
+            <div>
+                <h2 class="alert alert-primary">Registro</h2>
+                <h2>Crear cuenta</h2> 
+                <form>
+                    <label for="email">Email</label>
+                    <input onChange={((e)=> this.controlarCambios(e, "email"))}/>
+                    <label for="password">Contraseña</label>
+                    <input onChange={((e)=> this.controlarCambios(e, "password"))}/>
+                    <button onClick={((e)=> this.onSubmit(e))}> Registrarse </button>
+                    <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/login"> Iniciar sesión </Link></p>
+                </form>
+            </div> 
+        )
     }
 }
-
-export default Register       
+export default Register;    

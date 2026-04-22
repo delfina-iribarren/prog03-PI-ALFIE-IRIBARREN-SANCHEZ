@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Buscador from "../../components/Buscador/Buscador";
+import Register from "../Register/Register";
 
 
 class Home extends Component {
@@ -43,12 +44,6 @@ class Home extends Component {
 
 
                     <Header />
-                    <h2 class="alert alert-primary">Registro</h2>
-
-                               
-                                <p class="mt-3 text-center">¿Ya tenés cuenta? <a href="login.html">Iniciar sesión</a></p>
-
-
                     <Buscador />
 
                     <h2 className="alert alert-primary">Popular movies this week <Link to= "/peliculas/popular">Ver todas las peliculas populares</Link></h2>
