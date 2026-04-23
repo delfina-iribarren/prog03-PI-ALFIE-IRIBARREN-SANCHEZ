@@ -25,11 +25,11 @@ class Header extends Component {
                     </li>
 
                     <li class="nav-item">
-                        <Link to="/peliculas"> Películas </Link>
+                        <Link to="/peliculas/popular"> Películas populares </Link>
                     </li>
 
                     <li class="nav-item">
-                        <Link to="/series"> Series </Link>
+                        <Link to="/peliculas/now_playing"> Peliculas en cartelera </Link>
                     </li>
                     {
                         logueado ? <li class="nav-item">

@@ -58,7 +58,7 @@ class Peliculas extends Component {
 
                     <Header />
 
-                    <h2 class="alert alert-primary">Todas las películas {this.props.match.params.tipo?"populares":"en cartelera"}</h2>
+                    <h2 class="alert alert-primary">Todas las películas {this.props.match.params.tipo=="popular"?"populares":"en cartelera"}</h2>
                     <form class="filter-form px-0 mb-3">
                         <input type="text" name="filter" id="" placeholder="Buscar dentro de la lista" value={this.state.busqueda}onChange={(e)=>this.escribir(e)}/>
                     </form>
