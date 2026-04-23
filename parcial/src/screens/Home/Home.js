@@ -43,16 +43,7 @@ class Home extends Component {
 
 
                     <Header />
-<<<<<<< HEAD
-
-
-                    <form class="search-form" action="results.html" method="get">
-                        <input type="text" class="" name="searchData" placeholder="Buscar..." value="" />
-                        <button type="submit" class="btn btn-success btn-sm">Buscar</button>
-                    </form>
-=======
                     <Buscador />
->>>>>>> 7bddb1afa1e691cbf2a6964cf9b5f8fa50c405f0
 
                     <h2 class="alert alert-primary">Popular movies this week</h2>
                     <section class="row cards" id="movies">

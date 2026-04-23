@@ -4,7 +4,7 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-class Register extends Component {
+class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -52,28 +52,29 @@ class Register extends Component {
         }
         else {
 
-            const nuevoUsuario = { email: email, password: password };
+
             const storage = JSON.parse(localStorage.getItem("usuarios"));
             if (storage !== null) {
                 const usuarioLocal = storage.filter((usuario) => usuario.email === email)
                 if (usuarioLocal.length === 0) {
-                    storage.push(nuevoUsuario);
-                    localStorage.setItem("usuarios", JSON.stringify(storage));
-                    cookies.set("email", email);
-                    //redireccionar a home
-                    this.props.history.push("/");
+                    this.setState({ error: "No hay una cuenta con este mail" });
                 }
 
                 else {
-                    this.setState({ error: "Ya hay una cuenta con ese email" });
+                    if (usuarioLocal[0].password == password) {
+                        cookies.set("email", email);
+                        //redireccionar a home
+                        this.props.history.push("/");
+                    }
+                    else{
+                        this.setState({ error: "Contraseña incorrecta" });
+                    }
                 }
 
             }
             else {
-                localStorage.setItem("usuarios", JSON.stringify([nuevoUsuario]));
-                cookies.set("email", email);
-                //redireccionar a home
-                this.props.history.push("/");
+                this.setState({ error: "No hay una cuenta con este mail" });
+
             }
         }
     }
@@ -81,8 +82,8 @@ class Register extends Component {
     render() {
         return (
             <div>
-                <h2 class="alert alert-primary">Registro</h2>
-                <h2>Crear cuenta</h2>
+                <h2 class="alert alert-primary">Login</h2>
+                <h2>Iniciar sesión</h2>
                 <form>
                     <label for="email">Email</label>
                     <input type="email" onChange={((e) => this.controlarCambios(e, "email"))} />
@@ -92,10 +93,10 @@ class Register extends Component {
                     {
                         this.state.error != "" ? <p>{this.state.error}</p> : ""
                     }
-                    <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/login"> Iniciar sesión </Link></p>
+                    <p className="mt-3 text-center">¿No tenes cuenta? <Link to="/registro"> Registrate </Link></p>
                 </form>
             </div>
         )
     }
 }
-export default Register;    
+export default Login;    

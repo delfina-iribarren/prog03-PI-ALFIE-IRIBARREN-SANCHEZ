@@ -2,6 +2,9 @@ import { Component } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Card from "../../components/Card/Card";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 class Favoritos extends Component {
     constructor(props) {
@@ -12,10 +15,18 @@ class Favoritos extends Component {
         }
     }
     componentDidMount() {
+        let cookieUsuario = cookies.get('email');
+        console.log(cookieUsuario);
+        if (cookieUsuario == undefined) {
+            //redireccionar a home
+            this.props.history.push("/");
+        }
+
+        
         const storage = localStorage.getItem("favPeliculas");
         if (storage !== null) {
             const storageParseado = JSON.parse(storage);
-            if (storage!="[]") {
+            if (storage != "[]") {
 
                 let peliculas = [];
                 storageParseado.map(unId => {
@@ -36,12 +47,18 @@ class Favoritos extends Component {
 
         }
     }
+
+    desloguear() {
+        cookies.remove("email");
+        this.props.history.push("/");
+    }
+
     render() {
         return (
             <div class="container">
                 <h1>UdeSA Movies</h1>
                 <Header />
-                <h2 class="alert alert-primary">Películas favoritas</h2>
+                <h2 class="alert alert-primary">Películas favoritas <p onClick={()=>this.desloguear()}>Cerrar sesión</p></h2>
                 <section className="row cards" id="movies">
                     {this.state.hayFavoritos ?
                         this.state.favoritos.length == 0 ? <p>Cargando...</p> : this.state.favoritos.map((unapeli, idx) => <Card data={unapeli} key={idx} />)
