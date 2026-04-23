@@ -58,7 +58,8 @@ class Favoritos extends Component {
             <div class="container">
                 <h1>UdeSA Movies</h1>
                 <Header />
-                <h2 class="alert alert-primary">Películas favoritas <p onClick={()=>this.desloguear()}>Cerrar sesión</p></h2>
+                <h2 class="alert alert-primary">Películas favoritas</h2>
+                <p onClick={()=>this.desloguear()}>Cerrar sesión</p>
                 <section className="row cards" id="movies">
                     {this.state.hayFavoritos ?
                         this.state.favoritos.length == 0 ? <p>Cargando...</p> : this.state.favoritos.map((unapeli, idx) => <Card data={unapeli} key={idx} />)
