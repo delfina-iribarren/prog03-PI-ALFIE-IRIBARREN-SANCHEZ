@@ -6,7 +6,9 @@ import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Buscador from "../../components/Buscador/Buscador";
 import Register from "../Register/Register";
+import Cookies from "universal-cookie";
 
+const cookies = new Cookies();
 
 class Home extends Component {
     constructor(props) {
@@ -36,6 +38,8 @@ class Home extends Component {
 
 
     render() {
+        let cookiesUsuario = cookies.get('email');
+        let logueado = (cookiesUsuario != undefined)
         return (
             <React.Fragment>
                 <div class="container">
@@ -47,7 +51,7 @@ class Home extends Component {
 
                     <h2 class="alert alert-primary">Popular movies this week</h2>
                     <section class="row cards" id="movies">
-                        {this.state.pelispopulares.length==0?<p>Cargando...</p>:this.state.pelispopulares.map((unapeli,idx)=><Card data={unapeli} key={idx}/>)}
+                        {this.state.pelispopulares.length==0?<p>Cargando...</p>:this.state.pelispopulares.map((unapeli,idx)=><Card data={unapeli} key={idx} logueado={logueado }/>)}
                     </section>
 
                     <h2 class="alert alert-primary">Movies now playing</h2>

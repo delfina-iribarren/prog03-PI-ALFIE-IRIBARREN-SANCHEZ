@@ -77,6 +77,7 @@ class Detalle extends Component {
                     <p>{this.state.data.overview}</p>
                     {this.state.data.genres == undefined ? "" : this.state.data.genres.map(item => <p>{item.name}</p>)}
                     {logueado ? <div className="btn alert-primary" onClick={() => this.state.esFavorito ? this.sacarDeFavoritos() : this.agregarAFavoritos()}>{this.state.esFavorito ? '♥️' : '♡'}</div> : ""}
+                    
 
                 <Footer />
             </React.Fragment>
