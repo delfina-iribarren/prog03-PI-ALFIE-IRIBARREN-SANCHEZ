@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Cookies from "universal-cookie";
+import "./Detalle.css"
 
 const cookies = new Cookies();
 

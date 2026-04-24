@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "../../components/Card/Card";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import "./ResultadoBusqueda.css"
 
 const api_key = '90b45a60c2f1bb623a150a6f0011fbcb';
 

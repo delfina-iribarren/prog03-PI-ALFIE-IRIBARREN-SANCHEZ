@@ -7,6 +7,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Buscador from "../../components/Buscador/Buscador";
 import Register from "../Register/Register";
 import Cookies from "universal-cookie";
+import "./Home.css"
 
 const cookies = new Cookies();
 

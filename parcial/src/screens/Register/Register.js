@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Cookies from "universal-cookie";
+import "./Register.css"
 
 const cookies = new Cookies();
 

@@ -4,7 +4,7 @@ import Card from "../../components/Card/Card";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Cookies from "universal-cookie";
-
+import "./Peliculas.css"
 const cookies = new Cookies();
 
 
