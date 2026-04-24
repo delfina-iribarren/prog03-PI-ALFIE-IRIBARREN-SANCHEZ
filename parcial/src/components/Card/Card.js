@@ -12,11 +12,10 @@ class Card extends Component {
     }
     
     componentDidMount(){
-        console.log("HOLA");
         const storage = localStorage.getItem("favPeliculas");
         if (storage != null) {
             const storageParseado = JSON.parse(storage);
-            if (storageParseado.includes(this.props.data.id)){
+            if (storageParseado.includes(JSON.stringify(this.props.data.id))){
                 this.setState({esFavorito: true});
             }
         }
@@ -30,12 +29,12 @@ class Card extends Component {
         if (storage === null) {
         const primerFav = this.props.data.id;
         let array = [];
-        array.push(primerFav);
+        array.push(JSON.stringify(primerFav));
         const storageString = JSON.stringify(array); 
         localStorage.setItem("favPeliculas", storageString); 
         } else {
         const storageParseado = JSON.parse(storage);
-        storageParseado.push(this.props.data.id); 
+        storageParseado.push(JSON.stringify(this.props.data.id)); 
         const storageString = JSON.stringify(storageParseado);
         localStorage.setItem("favPeliculas", storageString);
         }
@@ -46,7 +45,7 @@ class Card extends Component {
         const storage = localStorage.getItem("favPeliculas");
         const storageParseado = JSON.parse(storage);
   
-        const storageFiltrado = storageParseado.filter(favId => favId !== this.props.data.id);
+        const storageFiltrado = storageParseado.filter(favId => favId !== JSON.stringify(this.props.data.id));
   
         const storageString = JSON.stringify(storageFiltrado);
         localStorage.setItem("favPeliculas", storageString);

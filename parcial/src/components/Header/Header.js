@@ -13,6 +13,12 @@ class Header extends Component {
         }
     }
 
+    desloguear() {
+        cookies.remove("email");
+        this.props.history.push("/");
+    }
+
+
     render() {
         let cookiesUsuario = cookies.get('email');
         let logueado = (cookiesUsuario != undefined)
@@ -32,16 +38,18 @@ class Header extends Component {
                         <Link to="/peliculas/now_playing"> Peliculas en cartelera </Link>
                     </li>
                     {
-                        logueado ? <li class="nav-item">
+                        logueado ? <React.Fragment> <li class="nav-item">
                             <Link to="/favoritas"> Favoritas </Link>
-                        </li> : <React.Fragment>
-                            <li class="nav-item ml-auto">
-                                <Link to="/registro"> Registro </Link>
-                            </li>
+                        </li>
+                            <li onClick={() => this.desloguear()}>Cerrar sesión</li></React.Fragment>
+                            : <React.Fragment>
+                                <li class="nav-item ml-auto">
+                                    <Link to="/registro"> Registro </Link>
+                                </li>
 
-                            <li class="nav-item">
-                                <Link to="/login"> Login </Link>
-                            </li></React.Fragment>
+                                <li class="nav-item">
+                                    <Link to="/login"> Login </Link>
+                                </li></React.Fragment>
                     }
 
 

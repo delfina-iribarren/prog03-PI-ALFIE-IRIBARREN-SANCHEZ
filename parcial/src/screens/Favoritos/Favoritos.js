@@ -16,7 +16,6 @@ class Favoritos extends Component {
     }
     componentDidMount() {
         let cookieUsuario = cookies.get('email');
-        console.log(cookieUsuario);
         if (cookieUsuario == undefined) {
             //redireccionar a home
             this.props.history.push("/");
@@ -33,7 +32,6 @@ class Favoritos extends Component {
                     fetch(`https://api.themoviedb.org/3/movie/${unId}?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=1`)
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data);
                             peliculas.push(data);
                             this.setState({ favoritos: peliculas });
                         })
@@ -48,10 +46,6 @@ class Favoritos extends Component {
         }
     }
 
-    desloguear() {
-        cookies.remove("email");
-        this.props.history.push("/");
-    }
 
     render() {
         return (
@@ -59,7 +53,6 @@ class Favoritos extends Component {
                 <h1>UdeSA Movies</h1>
                 <Header />
                 <h2 class="alert alert-primary">Películas favoritas</h2>
-                <p onClick={()=>this.desloguear()}>Cerrar sesión</p>
                 <section className="row cards" id="movies">
                     {this.state.hayFavoritos ?
                         this.state.favoritos.length == 0 ? <p>Cargando...</p> : this.state.favoritos.map((unapeli, idx) => <Card data={unapeli} key={idx} />)
