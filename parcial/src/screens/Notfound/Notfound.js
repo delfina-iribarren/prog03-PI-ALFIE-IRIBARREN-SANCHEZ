@@ -11,7 +11,9 @@ class Notfound extends Component {
     
     render(){
         return(
-            <h1>Notfound</h1>
+            <h1>Notfound
+                Error 404
+            </h1>
         )
     }
 

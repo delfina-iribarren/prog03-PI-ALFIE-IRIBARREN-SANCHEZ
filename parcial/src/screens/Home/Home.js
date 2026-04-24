@@ -23,14 +23,12 @@ class Home extends Component {
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=1")
             .then(res => res.json())
             .then(data => {
-                console.log(data.results)
                 this.setState({pelispopulares:data.results.slice(0,5)})
             })
 
         fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=1")
             .then(res => res.json())
             .then(data => {
-                console.log(data.results)
                 this.setState({peliscartelera:data.results.slice(0,5)})
             })
     }

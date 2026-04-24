@@ -14,9 +14,7 @@ class Buscador extends Component {
         this.setState({ termino: e.target.value });
     }
     controlarTipo(e) {
-        console.log(e.target.value)
         this.setState({tipo: e.target.value})
-        console.log(this.state.tipo)
     }
 
     ejecutarBusqueda(e) {

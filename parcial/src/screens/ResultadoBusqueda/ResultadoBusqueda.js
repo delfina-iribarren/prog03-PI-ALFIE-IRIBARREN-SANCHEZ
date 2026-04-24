@@ -32,7 +32,7 @@ class ResultadoBusqueda extends Component {
         .then(data => {
             this.setState({ resultados: data.results });
         })
-        .catch(error => console.log(error));
+        .catch(error => console.error(error));
     }
 
     render() {

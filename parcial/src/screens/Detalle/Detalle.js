@@ -54,7 +54,6 @@ class Detalle extends Component {
         fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=1`)
             .then(res => res.json())
             .then(dataapi => {
-                console.log(dataapi)
                 this.setState({ data: dataapi });
             })
     }

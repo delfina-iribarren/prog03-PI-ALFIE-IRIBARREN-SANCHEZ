@@ -20,34 +20,28 @@ class Peliculas extends Component {
         fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.tipo}?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=1`)
             .then(res => res.json())
             .then(data => {
-                console.log(data.results)
                 this.setState({peliculas:data.results})
             })
 
-        .catch(e => console.log(e))
+        .catch(e => console.error(e))
     }
 //metodos:
     cargarMas(){
         fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.tipo}?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=${this.state.page}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data.results)
                 this.setState({peliculas:this.state.peliculas.concat(data.results),page:this.state.page + 1})
             })
 
-        .catch(e => console.log(e))
+        .catch(e => console.error(e))
     }
 
     escribir(e){
-        console.log(e.target.value)
         this.setState({busqueda:e.target.value},()=> {
-            console.log(this.state.busqueda)
             let filtro = this.state.peliculas.filter(unapeli => unapeli.title.toLowerCase().includes(this.state.busqueda.toLowerCase()))
             this.setState({peliculasFilter:filtro})
         })
-        console.log(this.state.busqueda)
     }
-
 
     render() {
         return (

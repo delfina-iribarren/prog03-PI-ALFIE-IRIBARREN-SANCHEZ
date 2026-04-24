@@ -17,7 +17,7 @@ class Favoritos extends Component {
     componentDidMount() {
         let cookieUsuario = cookies.get('email');
         if (cookieUsuario == undefined) {
-            //redireccionar a home
+             
             this.props.history.push("/");
         }
 

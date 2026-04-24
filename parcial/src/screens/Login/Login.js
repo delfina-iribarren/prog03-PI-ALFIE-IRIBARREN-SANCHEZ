@@ -17,9 +17,8 @@ class Login extends Component {
 
     componentDidMount() {
         let cookieUsuario = cookies.get('email');
-        console.log(cookieUsuario);
         if (cookieUsuario != undefined) {
-            //redireccionar a home
+             
             this.props.history.push("/");
         }
     }
@@ -27,11 +26,11 @@ class Login extends Component {
     controlarCambios(e, campo) {
 
         if (campo == "email") {
-            this.setState({ email: e.target.value }, () => console.log(this.state))
+            this.setState({ email: e.target.value })
         }
 
         if (campo == "password") {
-            this.setState({ password: e.target.value }, () => console.log(this.state))
+            this.setState({ password: e.target.value })
         }
     };
 
@@ -63,7 +62,7 @@ class Login extends Component {
                 else {
                     if (usuarioLocal[0].password == password) {
                         cookies.set("email", email);
-                        //redireccionar a home
+                         
                         this.props.history.push("/");
                     }
                     else{
