@@ -61,7 +61,7 @@ class Card extends Component {
                 <img src={"https://image.tmdb.org/t/p/w500"+this.props.data.poster_path} className="card-img-top"
                     alt="..."/>
                 <div className="cardBody">
-                    <h5 className="card-title">{this.props.data.title}</h5>
+                    <h5 className="card-title">{this.props.data.title ? this.props.data.title : this.props.data.name }</h5>
                     <button className="btn alert-primary" onClick = {() => this.cambiarDescripcion()}>{this.state.verDescripcion ? "Ocultar descripción" : "Ver descripción"}</button>
                     {this.state.verDescripcion ? <p className="card-text">{this.props.data.overview}</p> : ""}
                     <Link to= {`/detalle/${this.props.data.id}`} className="btn btn-primary">Ver más</Link>

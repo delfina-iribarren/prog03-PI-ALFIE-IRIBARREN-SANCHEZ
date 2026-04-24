@@ -18,7 +18,7 @@ function App() {
       <Route path="/favoritas" exact={true} component = {Favoritos}/>
       <Route path="/detalle/:id" exact={true} component = {Detalle}/>
       <Route path="/peliculas/:tipo" exact={true} component = {Peliculas}/>
-      <Route path="/resultados/:termino" exact={true} component = {ResultadoBusqueda}/>
+      <Route path="/resultados/:termino/:tipo" exact={true} component = {ResultadoBusqueda}/>
       
     
 

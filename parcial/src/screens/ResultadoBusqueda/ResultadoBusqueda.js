@@ -15,7 +15,8 @@ class ResultadoBusqueda extends Component {
 
     componentDidMount() {
         const termino = this.props.match.params.termino;
-        this.buscar(termino);
+        const tipo = this.props.match.params.tipo;
+        this.buscar(termino, tipo);
     }
 
     componentDidUpdate(prevProps) {
@@ -25,8 +26,8 @@ class ResultadoBusqueda extends Component {
         terminoAnterior !== terminoAnterior && (() => this.buscar(terminoNuevo))();
     }
 
-    buscar(termino) {
-        fetch(`https://api.themoviedb.org/3/search/multi?api_key=${api_key}&query=${termino}&language=es-ES`)
+    buscar(termino, tipo) {
+        fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=${api_key}&query=${termino}&language=es-ES`)
         .then(response => response.json())
         .then(data => {
             this.setState({ resultados: data.results });
