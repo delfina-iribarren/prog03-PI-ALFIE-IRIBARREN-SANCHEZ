@@ -89,7 +89,7 @@ class Login extends Component {
                     <input type="email" onChange={((e) => this.controlarCambios(e, "email"))} />
                     <label for="password">Contraseña</label>
                     <input type="password" onChange={((e) => this.controlarCambios(e, "password"))} />
-                    <button onClick={((e) => this.onSubmit(e))}> Registrarse </button>
+                    <button onClick={((e) => this.onSubmit(e))}> Iniciar sesión </button>
                     {
                         this.state.error != "" ? <p>{this.state.error}</p> : ""
                     }

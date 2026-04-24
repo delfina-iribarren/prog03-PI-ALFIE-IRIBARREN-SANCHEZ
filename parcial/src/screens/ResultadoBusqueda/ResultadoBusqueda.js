@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Card from "../../components/Card/Card";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 const api_key = '90b45a60c2f1bb623a150a6f0011fbcb';
 
@@ -25,7 +27,7 @@ class ResultadoBusqueda extends Component {
 
     buscar(termino) {
         fetch(`https://api.themoviedb.org/3/search/multi?api_key=${api_key}&query=${termino}&language=es-ES`)
-        .then(respose => Response.json())
+        .then(response => response.json())
         .then(data => {
             this.setState({ resultados: data.results });
         })
@@ -38,10 +40,13 @@ class ResultadoBusqueda extends Component {
 
         return (
             <div>
+                <h1>UdeSA Movies</h1>
+                <Header/>
                 <h2> Resultados para: {termino} </h2>
                 {resultados.length === 0 ? <p> Cargando...</p> : <div> {resultados.map((item, idx) => (<Card key={idx} data={item} /> ))}
                     </div>
                 }
+                <Footer/>
             </div>
         );
     }
