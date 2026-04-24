@@ -25,22 +25,22 @@ class Header extends Component {
 
         return (
             <nav>
-                <ul class="nav nav-tabs my-4">
-                    <li class="nav-item">
+                <ul className="nav nav-tabs my-4">
+                    <li className="nav-item">
                         <Link to="/"> Home </Link>
                     </li>
 
-                    <li class="nav-item">
+                    <li className="nav-item">
                         <Link to="/peliculas/popular"> Películas populares </Link>
                     </li>
 
-                    <li class="nav-item">
+                    <li className="nav-item">
                         <Link to="/peliculas/now_playing"> Peliculas en cartelera </Link>
                     </li>
                     {
                         logueado ? 
                         <React.Fragment> 
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Link to="/favoritas"> Favoritas </Link>
                             </li>
                             <li onClick={() => this.desloguear()} className="nav-item">
@@ -48,11 +48,11 @@ class Header extends Component {
                             </li>
                         </React.Fragment>
                             : <React.Fragment>
-                                <li class="nav-item ml-auto">
+                                <li className="nav-item ml-auto">
                                     <Link to="/registro"> Registro </Link>
                                 </li>
 
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <Link to="/login"> Login </Link>
                                 </li></React.Fragment>
                     }
