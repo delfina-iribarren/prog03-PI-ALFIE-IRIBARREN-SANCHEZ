@@ -41,11 +41,12 @@ class Home extends Component {
         let logueado = (cookiesUsuario != undefined)
         return (
             <React.Fragment>
+                <Header />
                 <div class="container">
                     <h1>UdeSA Movies</h1>
 
 
-                    <Header />
+                    
                     <Buscador />
 
                     <h2 class="alert alert-primary">Popular movies this week</h2>
