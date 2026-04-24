@@ -28,7 +28,7 @@ class Peliculas extends Component {
 
         .catch(e => console.error(e))
     }
-//metodos:
+
     cargarMas(){
         fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.tipo}?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=${this.state.page}`)
             .then(res => res.json())
@@ -49,11 +49,9 @@ class Peliculas extends Component {
     render() {
         return (
             <React.Fragment>
+                <Header />
                 <div class="container">
                     <h1>UdeSA Movies</h1>
-
-
-                    <Header />
 
                     <h2 class="alert alert-primary">Todas las películas {this.props.match.params.tipo=="popular"?"populares":"en cartelera"}</h2>
                     <form class="filter-form px-0 mb-3">
