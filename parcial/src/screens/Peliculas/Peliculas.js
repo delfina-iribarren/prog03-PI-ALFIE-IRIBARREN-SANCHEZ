@@ -3,6 +3,9 @@ import React from "react";
 import Card from "../../components/Card/Card";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 
 class Peliculas extends Component {
