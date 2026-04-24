@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Header.css"
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, withRouter } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
@@ -38,10 +38,15 @@ class Header extends Component {
                         <Link to="/peliculas/now_playing"> Peliculas en cartelera </Link>
                     </li>
                     {
-                        logueado ? <React.Fragment> <li class="nav-item">
-                            <Link to="/favoritas"> Favoritas </Link>
-                        </li>
-                            <li onClick={() => this.desloguear()}>Cerrar sesión</li></React.Fragment>
+                        logueado ? 
+                        <React.Fragment> 
+                            <li class="nav-item">
+                                <Link to="/favoritas"> Favoritas </Link>
+                            </li>
+                            <li onClick={() => this.desloguear()} className="nav-item">
+                               <Link to="/"> Cerrar sesión </Link> 
+                            </li>
+                        </React.Fragment>
                             : <React.Fragment>
                                 <li class="nav-item ml-auto">
                                     <Link to="/registro"> Registro </Link>
@@ -60,4 +65,4 @@ class Header extends Component {
 
 
 }
-export default Header;
+export default withRouter(Header);
