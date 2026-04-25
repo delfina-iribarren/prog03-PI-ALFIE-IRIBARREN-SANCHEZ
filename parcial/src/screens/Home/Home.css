@@ -1,0 +1,38 @@
+body {
+    background-color: #141414;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+.container {
+    padding: 25px 20px;
+}
+
+h1 {
+    color: #e50914;
+    font-size: 32px;
+}
+
+.alert {
+    background: none;
+    border: none;
+    color: #e5e5e5;
+    font-size: 22px;
+    margin: 30px 0 15px 0;
+    padding: 0;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 100px 20px 20px 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .alert {
+        font-size: 18px;
+    }
+}

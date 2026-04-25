@@ -1,0 +1,28 @@
+.search-form input {
+    background-color: rgba(0,0,0,0.75);
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 3px;
+    width: 180px;
+}
+
+.search-form select {
+    background-color: rgba(0,0,0,0.75);
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.search-form button {
+    background-color: #e50914;
+    border: none ;
+    color: white ;
+    padding: 8px 14px ;
+    border-radius: 3px ;
+    font-size: 13px ;
+}

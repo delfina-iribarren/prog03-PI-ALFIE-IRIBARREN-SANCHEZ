@@ -1,17 +1,36 @@
 nav {
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: #eee;
-    border-radius: 4px;
-    margin-bottom: 20px;
+    background-color: black;
+    padding: 15px 40px;
 }
+
 .nav {
-    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 40px;
 }
-.nav a{
-    color: #444;
+
+.nav a {
     text-decoration: none;
+    color: #e5e5e5;
+    font-size: 14px;
+    font-weight: 500;
 }
-.nav a:hover{
+
+.nav-item:first-child a {
+    color: #e50914;
+    font-size: 22px;
     font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 20px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 }
