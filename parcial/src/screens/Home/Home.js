@@ -44,9 +44,7 @@ class Home extends Component {
                 <Header />
                 <div class="container">
                     <h1>UdeSA Movies</h1>
-
-
-                    
+                      
                     <Buscador />
 
                     <h2 class="alert alert-primary">Popular movies this week</h2>

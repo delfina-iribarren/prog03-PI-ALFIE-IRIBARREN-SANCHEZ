@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Cookies from "universal-cookie";
 import "./Login.css"
+import Footer from "../../components/Footer/Footer";
 
 const cookies = new Cookies();
 
@@ -95,6 +96,7 @@ class Login extends Component {
                     }
                     <p className="mt-3 text-center">¿No tenes cuenta? <Link to="/registro"> Registrate </Link></p>
                 </form>
+            <Footer/>
             </div>
         )
     }

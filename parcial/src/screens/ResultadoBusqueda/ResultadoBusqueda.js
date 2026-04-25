@@ -42,8 +42,8 @@ class ResultadoBusqueda extends Component {
 
         return (
             <div>
-                <h1>UdeSA Movies</h1>
                 <Header/>
+                <h1>UdeSA Movies</h1>
                 <h2> Resultados para: {termino} </h2>
                 {resultados.length === 0 ? <p> Cargando...</p> : <div> {resultados.map((item, idx) => (<Card key={idx} data={item} /> ))}
                     </div>

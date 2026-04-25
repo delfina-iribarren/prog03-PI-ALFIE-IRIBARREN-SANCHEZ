@@ -1,4 +1,5 @@
 import { Component } from "react";
+import React from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Card from "../../components/Card/Card";
@@ -18,11 +19,11 @@ class Favoritos extends Component {
     componentDidMount() {
         let cookieUsuario = cookies.get('email');
         if (cookieUsuario == undefined) {
-             
+
             this.props.history.push("/");
         }
 
-        
+
         const storage = localStorage.getItem("favPeliculas");
         if (storage !== null) {
             const storageParseado = JSON.parse(storage);
@@ -50,19 +51,22 @@ class Favoritos extends Component {
 
     render() {
         return (
-            <div class="container">
-                <h1>UdeSA Movies</h1>
+            <React.Fragment>
                 <Header />
-                <h2 class="alert alert-primary">Películas favoritas</h2>
-                <section className="row cards" id="movies">
-                    {this.state.hayFavoritos ?
-                        this.state.favoritos.length == 0 ? <p>Cargando...</p> : this.state.favoritos.map((unapeli, idx) => <Card data={unapeli} key={idx} />)
-                        : "No tenes peliculas en favoritos"}
-                </section>
+                <div class="container">
+                    <h1>UdeSA Movies</h1>
 
-                <Footer />
-            </div>
+                    <h2 class="alert alert-primary">Películas favoritas</h2>
+                    <section className="row cards" id="movies">
+                        {this.state.hayFavoritos ?
+                            this.state.favoritos.length == 0 ? <p>Cargando...</p> : this.state.favoritos.map((unapeli, idx) => <Card data={unapeli} key={idx} />)
+                            : "No tenes peliculas en favoritos"}
+                    </section>
 
+                    <Footer />
+
+                </div >
+            </React.Fragment>
         )
     }
 

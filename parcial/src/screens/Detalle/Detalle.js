@@ -65,17 +65,17 @@ class Detalle extends Component {
 
         return (
             <React.Fragment>
-                <h1>UdeSA Movies</h1>
                 <Header />
+                <h1>UdeSA Movies</h1>
                 <h2 class="alert alert-primary">Detalle de la pelicula</h2>
 
                     <img src={"https://image.tmdb.org/t/p/w500" + this.state.data.poster_path} />
-                    <h2>{this.state.data.title}</h2>
-                    <p>{this.state.data.vote_average}</p>
-                    <p>{this.state.data.release_date}</p>
-                    <p>{this.state.data.runtime}</p>
-                    <p>{this.state.data.overview}</p>
-                    {this.state.data.genres == undefined ? "" : this.state.data.genres.map(item => <p>{item.name}</p>)}
+                    <h2>Titulo: {this.state.data.title}</h2>
+                    <p>Raiting: {this.state.data.vote_average}</p>
+                    <p>Fecha de estreno: {this.state.data.release_date}</p>
+                    <p>Duracion: {this.state.data.runtime}</p>
+                    <p>Sinopsis: {this.state.data.overview}</p>
+                    {this.state.data.genres == undefined ? "" : this.state.data.genres.map(item => <p> {item.name}</p>)}
                     {logueado ? <div className="btn alert-primary" onClick={() => this.state.esFavorito ? this.sacarDeFavoritos() : this.agregarAFavoritos()}>{this.state.esFavorito ? '♥️' : '♡'}</div> : ""}
                     
 

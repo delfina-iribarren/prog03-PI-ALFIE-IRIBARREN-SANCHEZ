@@ -1,0 +1,63 @@
+/* TITULO PRINCIPAL */
+nav + h1 {
+    color: #e50914;
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* SUBTITULO */
+nav + h1 + .alert {
+    background: none !important;
+    border: none !important;
+    color: #e5e5e5 !important;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* POSTER */
+nav + h1 + .alert + img {
+    display: block;
+    margin: 20px auto;
+    width: 250px;
+    border-radius: 8px;
+}
+
+/* TITULO DE LA PELI */
+nav + h1 + .alert + img + h2 {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* INFO (todos los p que siguen) */
+nav + h1 + .alert + img + h2 + p,
+nav + h1 + .alert + img + h2 + p + p,
+nav + h1 + .alert + img + h2 + p + p + p,
+nav + h1 + .alert + img + h2 + p + p + p + p {
+    text-align: center;
+    color: #ccc;
+    margin: 5px auto;
+    max-width: 600px;
+}
+
+/* GENEROS (los p extra del map) */
+nav + h1 + .alert + img + h2 ~ p {
+    text-align: center;
+    color: #aaa;
+}
+
+/* CORAZÓN */
+nav + h1 + .alert + img + h2 ~ .btn {
+    display: block;
+    margin: 20px auto;
+    font-size: 22px;
+    background: none !important;
+    border: none !important;
+    color: #e50914 !important;
+    cursor: pointer;
+}
+
+/* FOOTER */
+nav + h1 + .alert ~ footer {
+    margin-top: 40px;
+}

@@ -1,0 +1,78 @@
+/* CONTENEDOR SOLO DE LOGIN */
+.alert.alert-primary {
+    background: none !important;
+    border: none !important;
+    color: #e50914 !important;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* SEGUNDO H2 (Iniciar sesión) */
+.alert.alert-primary + h2 {
+    text-align: center;
+    color: #e5e5e5;
+    margin-bottom: 20px;
+}
+
+/* FORM SOLO DE LOGIN */
+.alert.alert-primary + h2 + form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* LABELS */
+.alert.alert-primary + h2 + form label {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* INPUTS */
+.alert.alert-primary + h2 + form input {
+    background-color: #000;
+    border: 1px solid #333;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* FOCUS */
+.alert.alert-primary + h2 + form input:focus {
+    border-color: #e50914;
+}
+
+/* BOTÓN */
+.alert.alert-primary + h2 + form button {
+    margin-top: 10px;
+    background-color: #e50914;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ERROR */
+.alert.alert-primary + h2 + form > p {
+    color: #e50914;
+    font-size: 13px;
+}
+
+/* LINK */
+.alert.alert-primary + h2 + form a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+.alert.alert-primary + h2 + form a:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+}
