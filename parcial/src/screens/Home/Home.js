@@ -54,7 +54,7 @@ class Home extends Component {
 
                     <h2 class="alert alert-primary">Movies now playing</h2>
                     <section class="row cards" id="now-playing">
-                      {this.state.peliscartelera.length==0?<p>Cargando...</p>:this.state.peliscartelera.map((unapeli,idx)=><Card data={unapeli} key={idx}/>)}
+                      {this.state.peliscartelera.length==0?<p>Cargando...</p>:this.state.peliscartelera.map((unapeli,idx)=><Card data={unapeli} key={idx} logueado={logueado}/>)}
                     </section>
 
                 </div>

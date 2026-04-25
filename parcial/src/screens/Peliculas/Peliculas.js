@@ -29,6 +29,17 @@ class Peliculas extends Component {
         .catch(e => console.error(e))
     }
 
+
+    componentDidUpdate() {
+    if (this.state.peliculas.length === 0) return;
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.tipo}?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=1`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({ peliculas: data.results })
+        })
+        .catch(e => console.error(e))
+}    
+
     cargarMas(){
         fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.tipo}?api_key=90b45a60c2f1bb623a150a6f0011fbcb&language=en-US&page=${this.state.page}`)
             .then(res => res.json())
@@ -47,6 +58,7 @@ class Peliculas extends Component {
     }
 
     render() {
+        let logueado = cookies.get('email') != undefined;
         return (
             <React.Fragment>
                 <Header />
@@ -61,11 +73,10 @@ class Peliculas extends Component {
                     <section class="row cards" id="movies">
                         {
                         this.state.peliculas.length==0?<p>Cargando...</p>:
-                        this.state.busqueda.length==0? this.state.peliculas.map((unapeli,idx)=><Card data={unapeli} key={idx}/>):
-                        this.state.peliculasFilter.length!=0? this.state.peliculasFilter.map((unapeli,idx)=><Card data={unapeli} key={idx}/>):"No se encontraron resultados para esa busqueda"
+                        this.state.busqueda.length==0? this.state.peliculas.map((unapeli,idx)=><Card data={unapeli} key={idx}logueado={logueado}/>):
+                        this.state.peliculasFilter.length!=0? this.state.peliculasFilter.map((unapeli,idx)=><Card data={unapeli} key={idx} logueado={logueado}/>):"No se encontraron resultados para esa busqueda"
                         }
                     </section>
-                                                            {/* parentesis vacios antes de la => porque no recibe parametros  */}
                     <button class="btn btn-info" onClick={()=>this.cargarMas()}>Cargar más</button>
 
                 </div>

@@ -59,7 +59,7 @@ class Favoritos extends Component {
                     <h2 class="alert alert-primary">Películas favoritas</h2>
                     <section className="row cards" id="movies">
                         {this.state.hayFavoritos ?
-                            this.state.favoritos.length == 0 ? <p>Cargando...</p> : this.state.favoritos.map((unapeli, idx) => <Card data={unapeli} key={idx} />)
+                            this.state.favoritos.length == 0 ? <p>Cargando...</p> : this.state.favoritos.map((unapeli, idx) => <Card data={unapeli} key={idx} logueado={true}/>)
                             : "No tenes peliculas en favoritos"}
                     </section>
 

@@ -7,9 +7,9 @@ nav + h1 {
 
 /* SUBTITULO */
 nav + h1 + .alert {
-    background: none !important;
-    border: none !important;
-    color: #e5e5e5 !important;
+    background: none;
+    border: none;
+    color: #e5e5e5;
     text-align: center;
     font-size: 22px;
     margin-bottom: 20px;
@@ -51,9 +51,9 @@ nav + h1 + .alert + img + h2 ~ .btn {
     display: block;
     margin: 20px auto;
     font-size: 22px;
-    background: none !important;
-    border: none !important;
-    color: #e50914 !important;
+    background: none;
+    border: none;
+    color: #e50914;
     cursor: pointer;
 }
 

@@ -1,8 +1,8 @@
 /* CONTENEDOR SOLO DE LOGIN */
 .alert.alert-primary {
-    background: none !important;
-    border: none !important;
-    color: #e50914 !important;
+    background: none;
+    border: none;
+    color: #e50914;
     font-size: 26px;
     text-align: center;
     margin-top: 80px;
