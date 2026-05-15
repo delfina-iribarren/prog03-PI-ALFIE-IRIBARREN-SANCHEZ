@@ -1,30 +1,23 @@
 import React, { Component } from "react";
+import {useState, useEffect} from 'react';
 import "./Header.css"
 import { Link, withRouter } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-class Header extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-
-        }
-    }
-
-    desloguear() {
+function Header(props){
+    const [encabezado, setHeader] = useState('')
+    function desloguearHeader(){
         cookies.remove("email");
-        this.props.history.push("/");
+        setHeader("/");
     }
 
+    let cookiesUsuario = cookies.get('email');
+    let logueado = (cookiesUsuario != undefined)
 
-    render() {
-        let cookiesUsuario = cookies.get('email');
-        let logueado = (cookiesUsuario != undefined)
-
-        return (
-            <nav>
+    return(
+        <nav>
                 <ul className="nav nav-tabs my-4">
                     <li className="nav-item">
                         <Link to="/"> Home </Link>
@@ -43,7 +36,7 @@ class Header extends Component {
                             <li className="nav-item">
                                 <Link to="/favoritas"> Favoritas </Link>
                             </li>
-                            <li onClick={() => this.desloguear()} className="nav-item">
+                            <li onClick={() => desloguearHeader()} className="nav-item">
                                <Link to="/"> Cerrar sesión </Link> 
                             </li>
                         </React.Fragment>
@@ -56,13 +49,8 @@ class Header extends Component {
                                     <Link to="/login"> Login </Link>
                                 </li></React.Fragment>
                     }
-
-
                 </ul>
-            </nav>
-        )
-    }
-
-
+        </nav>
+    )
 }
 export default withRouter(Header);
